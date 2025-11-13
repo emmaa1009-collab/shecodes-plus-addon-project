@@ -1,0 +1,79 @@
+body {
+  background-color: #a9bcd0;
+  color: #4b4a45;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 auto;
+  padding: 20px 0;
+  text-align: center;
+}
+
+select {
+  border: 1px solid #b0c4c9;
+  border-radius: 5px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  margin: 0 auto;
+  padding: 5px;
+  width: 100%;
+}
+
+footer {
+  padding: 20px 0;
+  text-align: center;
+}
+
+a {
+  color: #5c7c89;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #3e6070;
+  text-decoration: underline;
+}
+
+.outer-container {
+  background-color: #e8f0f2;
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px rgba(54, 69, 79, 0.4);
+  margin: 60px auto;
+  width: 60%;
+}
+
+.inner-container {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.city {
+  border-bottom: 1px solid #b0c4c9;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.city h2 {
+  font-size: 30px;
+  margin: 0 0 5px;
+}
+
+.city date {
+  font-size: 16px;
+}
+
+.city small {
+  font-size: 16px;
+  line-height: 30px;
+  vertical-align: middle;
+}
+
+.time {
+  font-size: 40px;
+  font-weight: 700;
+}
