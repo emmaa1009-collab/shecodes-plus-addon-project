@@ -1,5 +1,6 @@
 function updateTime() {
   let cities = [
+    { id: "current-city", timeZone: currentTimeZone },
     { id: "los-angeles", timeZone: "America/Los_Angeles" },
     { id: "johannesburg", timeZone: "Africa/Johannesburg" },
     { id: "mumbai", timeZone: "Asia/Calcutta" },
@@ -23,8 +24,9 @@ function updateTime() {
   });
 }
 
-function addCity(event) {
+function showCity(event) {
   let cities = {
+    current: "current-city",
     losAngeles: "los-angeles",
     johannesburg: "johannesburg",
     mumbai: "mumbai",
@@ -43,8 +45,14 @@ function addCity(event) {
   }
 }
 
+let currentTimeZone = moment.tz.guess();
+let currentCityElement = document.querySelector("#current-city");
+let currentCityH2 = currentCityElement.querySelector("h2");
+currentCityName = currentTimeZone.replace("_", " ").split("/").at(-1);
+currentCityH2.innerHTML = `${currentCityName} 🏠`;
+
 let citySelectElement = document.querySelector("#city-select");
-citySelectElement.addEventListener("change", addCity);
+citySelectElement.addEventListener("change", showCity);
 
 updateTime();
 setInterval(updateTime, 1000);

@@ -20,12 +20,20 @@
         <h1>World Clock</h1>
         <select id="city-select">
           <option value="">Please select a city</option>
+          <option value="current">My current city</option>
           <option value="losAngeles">Los Angeles 🇺🇸</option>
           <option value="johannesburg">Johannesburg 🇿🇦</option>
           <option value="mumbai">Mumbai 🇮🇳</option>
           <option value="tokyo">Tokyo 🇯🇵</option>
           <option value="saoPaulo">São Paulo 🇧🇷</option>
         </select>
+        <div class="city hidden" id="current-city">
+          <div>
+            <h2></h2>
+            <div class="date"></div>
+          </div>
+          <div class="time"></div>
+        </div>
         <div class="city hidden" id="los-angeles">
           <div>
             <h2>Los Angeles 🇺🇸</h2>
