@@ -1,12 +1,12 @@
 function updateTime() {
-  //Los Angeles
-  let losAngelesElement = document.querySelector("#los-angeles");
-  let losAngelesDateElement = losAngelesElement.querySelector(".date");
-  let losAngelesTimeElement = losAngelesElement.querySelector(".time");
-  let losAngelesTime = moment().tz("America/Los_Angeles");
+  //New York
+  let newYorkElement = document.querySelector("#new-york");
+  let newYorkDateElement = newYorkElement.querySelector(".date");
+  let newYorkTimeElement = newYorkElement.querySelector(".time");
+  let newYorkTime = moment().tz("America/New_York");
 
-  losAngelesDateElement.innerHTML = losAngelesTime.format("dddd, D MMMM, YYYY");
-  losAngelesTimeElement.innerHTML = `${losAngelesTime.format(
+  newYorkDateElement.innerHTML = newYorkTime.format("dddd, D MMMM, YYYY");
+  newYorkTimeElement.innerHTML = `${newYorkTime.format(
     "h:mm:ss[<small>] A[</small>]"
   )}`;
 
@@ -22,28 +22,29 @@ function updateTime() {
   )}`;
 }
 
-updateTime();
-setInterval(updateTime, 1000);
+function addCity(event) {
+  let blankElement = document.querySelector("#blank-city");
+  let blankH2Element = blankElement.querySelector("h2");
+  let blankDateElement = blankElement.querySelector(".date");
+  let blankTimeElement = blankElement.querySelector(".time");
 
-function showCityCurrentTime(event) {
-  let currentTime = "";
-  let timeZone = "";
+  let cityTimeZone = event.target.value;
+  let cityName = "";
+  let cityTime = "";
 
   if (event.target.value.length > 0) {
-    if (event.target.value === "paris") {
-      timeZone = "Europe/Paris";
-    }
-    if (event.target.value === "tokyo") {
-      timeZone = "Asia/Tokyo";
-    }
-    if (event.target.value === "sydney") {
-      timeZone = "Australia/Sydney";
-    }
+    blankElement.classList.remove("hidden");
+    blankH2Element.innerHTML = cityName;
+    blankDateElement.innerHTML = `Hey`;
+    blankTimeElement.innerHTML = `You`;
+    alert(`${cityTimeZone}`);
+  } else {
+    blankElement.classList.add("hidden");
   }
-
-  currentTime = moment().tz(timeZone).format("dddd, MMMM d, YYYY h:mm A");
-  alert(`It is ${currentTime} in ${timeZone}`);
 }
 
-//let citiesSelect = document.querySelector("#cities");
-//citiesSelect.addEventListener("change", showCityCurrentTime);
+let citySelectElement = document.querySelector("#city-select");
+citySelectElement.addEventListener("change", addCity);
+
+updateTime();
+setInterval(updateTime, 1000);
